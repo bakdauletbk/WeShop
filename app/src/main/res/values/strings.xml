@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">WeShop</string>
+
+    //Обработка ошибок
+    <string name="error_unknown_title">Что-то пошло не так…</string>
+    <string name="error_unknown_body">Пожалуйста проверьте ваше интернет соединение или попробуйте позднее</string>
+
+    //Alert Диалог
+    <string name="dialog_ok">Oк</string>
+    <string name="authorization">Авторизация</string>
+    <string name="phone_number_or_email">Телефон номер или email</string>
+    <string name="password">Пароль</string>
+    <string name="to_come_in">Войти</string>
+
+    //Content
+
+</resources>
