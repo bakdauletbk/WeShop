@@ -27,6 +27,7 @@ class HomeFragment : Fragment(), FragmentImpl {
 
         val webSettings: WebSettings = webView.getSettings()
         webSettings.javaScriptEnabled = true
+        webSettings.domStorageEnabled = true
 
         webView.webViewClient = WebViewClient()
 
