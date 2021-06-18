@@ -16,23 +16,31 @@
     </fragment>
 
     <fragment
+        android:id="@+id/homeFragment"
+        android:name="kz.weshop.unioncompanyservice.content.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
         android:id="@+id/signInFragment"
         android:name="kz.weshop.unioncompanyservice.content.sign_in.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in">
         <action
-            android:id="@+id/action_signInFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="kz.weshop.unioncompanyservice.content.home.HomeFragment"
-        android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" >
+            android:id="@+id/action_signInFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_signInFragment"
-            app:destination="@id/signInFragment" />
+            android:id="@+id/action_signInFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="kz.weshop.unioncompanyservice.content.registration.RegistrationFragment"
+        android:label="RegistrationFragment"
+        tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="kz.weshop.unioncompanyservice.content.forget_password.ForgetPasswordFragment"
+        android:label="ForgetPasswordFragment"
+        tools:layout="@layout/fragment_forget_password" />
 
 </navigation>

@@ -3,7 +3,7 @@ package kz.weshop.unioncompanyservice.common.helpers
 object Validators {
 
     private const val MIN_PASSWORD_LENGTH = 6
-    private const val MIN_PHONE_LENGTH = 14
+    private const val MIN_PHONE_LENGTH = 16
     private const val MIN_BIN_LENGTH = 11
 
     fun validatePassword(password: String): Boolean {

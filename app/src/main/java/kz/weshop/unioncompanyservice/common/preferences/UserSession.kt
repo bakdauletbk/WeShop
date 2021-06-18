@@ -19,7 +19,6 @@ class UserSession(private val prefs: SharedPreferences) {
         prefs.edit().putString(KEY_ACCESS_TOKEN, access_token).apply()
     }
 
-
     fun clear() {
         prefs.edit().clear().apply()
     }

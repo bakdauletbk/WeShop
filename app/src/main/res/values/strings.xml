@@ -4,6 +4,7 @@
     //Обработка ошибок
     <string name="error_unknown_title">Что-то пошло не так…</string>
     <string name="error_unknown_body">Пожалуйста проверьте ваше интернет соединение или попробуйте позднее</string>
+    <string name="error_failed_connection_to_server">Не удалось установить соединение с сервером</string>
 
     //Alert Диалог
     <string name="dialog_ok">Oк</string>
@@ -13,5 +14,15 @@
     <string name="to_come_in">Войти</string>
 
     //Content
+    <string name="hint_number">+7(000)-000-00 00</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="enter_your_phone_number">Введите номер телефона</string>
+    <string name="forget_password">Забыл пароль?</string>
+    <string name="don_have_an_account_register_now">Нет аккаунта? Зарегистрироваться</string>
+    <string name="register">Регистрация</string>
+    <string name="full_name">Полное имя</string>
+    <string name="number">Номер</string>
+    <string name="email">Эл. адрес</string>
+    <string name="sign_in">Есть аккаунт? Войти</string>
 
 </resources>

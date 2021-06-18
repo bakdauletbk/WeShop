@@ -35,5 +35,4 @@ open class BaseFragment(private val resource: Int) : Fragment() {
         }?.show()
     }
 
-
 }

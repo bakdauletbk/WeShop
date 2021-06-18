@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_30dp"
+        android:layout_marginEnd="@dimen/dimens_30dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:text="@string/register"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimens_22sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_15dp"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:text="@string/full_name"
+                    android:textColor="@color/black_90"
+                    android:textSize="@dimen/dimens_14sp" />
+
+                <EditText
+                    android:id="@+id/et_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_7dp"
+                    android:background="@drawable/shape_stroke_gray_color"
+                    android:inputType="text"
+                    android:padding="@dimen/dimens_10dp"
+                    android:textSize="@dimen/dimens_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_15dp"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:text="@string/number"
+                    android:textColor="@color/black_90"
+                    android:textSize="@dimen/dimens_14sp" />
+
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_7dp"
+                    android:background="@drawable/shape_stroke_gray_color"
+                    android:hint="@string/hint_number"
+                    android:inputType="number"
+                    android:padding="@dimen/dimens_10dp"
+                    android:textSize="@dimen/dimens_14sp"
+                    app:mask="+7(***)-***-**-**" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_15dp"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:text="@string/email"
+                    android:textColor="@color/black_90"
+                    android:textSize="@dimen/dimens_14sp" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_7dp"
+                    android:background="@drawable/shape_stroke_gray_color"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/dimens_10dp"
+                    android:textSize="@dimen/dimens_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_15dp"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:text="@string/password"
+                    android:textColor="@color/black_90"
+                    android:textSize="@dimen/dimens_14sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_7dp"
+                    android:background="@drawable/shape_stroke_gray_color"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/dimens_10dp"
+                    android:textSize="@dimen/dimens_14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimens_20dp"
+                    android:background="@drawable/shape_register"
+                    android:paddingHorizontal="@dimen/dimens_25dp"
+                    android:paddingVertical="@dimen/dimens_10dp"
+                    android:text="@string/register"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimens_14sp"
+                    app:backgroundTint="@null"
+                    app:cornerRadius="@dimen/dimens_5dp" />
+
+                <TextView
+                    android:id="@+id/tv_sign_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimens_10dp"
+                    android:padding="@dimen/dimens_5dp"
+                    android:text="@string/sign_in"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dimens_14sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_white_foreground" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
