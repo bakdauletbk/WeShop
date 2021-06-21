@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 import kz.weshop.unioncompanyservice.common.utils.RESPONSE_SUCCESS
 import kz.weshop.unioncompanyservice.content.registration.model.ActivationAccountRequest
 import kz.weshop.unioncompanyservice.content.registration.model.RegistrationRequest
+import kz.weshop.unioncompanyservice.content.registration.model.SmsModel
 
 class RegistrationViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -16,9 +17,24 @@ class RegistrationViewModel(application: Application) : AndroidViewModel(applica
     val isSuccess = MutableLiveData<Boolean>()
     val isError = MutableLiveData<String>()
     val isActivation = MutableLiveData<Boolean>()
+    val isSendSms = MutableLiveData<Boolean>()
 
     fun clear() {
         repository.clear()
+    }
+
+    suspend fun sendSms(smsModel: SmsModel) {
+        viewModelScope.launch {
+            try {
+                val response = repository.sendSms(smsModel)
+                when (response.code()) {
+                    RESPONSE_SUCCESS -> isSendSms.postValue(true)
+                    else -> isSendSms.postValue(false)
+                }
+            } catch (e: Exception) {
+                isError.postValue("")
+            }
+        }
     }
 
     suspend fun registration(registrationRequest: RegistrationRequest) {

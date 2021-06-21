@@ -21,16 +21,16 @@ interface NetworkService {
     @POST(EndPoints.POST_REGISTER)
     suspend fun registration(
         @Body registrationRequest: RegistrationRequest
-    ) : Response<RegistrationResponse>
-
-    @POST(EndPoints.POST_RESET_PASSWORD_SMS)
-    suspend fun sendSms(
-        @Body smsModel: SmsModel
-    ): Response<ResponseBody>
+    ): Response<RegistrationResponse>
 
     @POST(EndPoints.POST_ACTIVATION)
     suspend fun activateAccount(
         @Body activationAccountRequest: ActivationAccountRequest
-    ) : Response<ResponseBody>
+    ): Response<ResponseBody>
+
+    @POST(EndPoints.POST_AUTH_SMS)
+    suspend fun sendSms(
+        @Body smsModel: SmsModel
+    ): Response<ResponseBody>
 
 }

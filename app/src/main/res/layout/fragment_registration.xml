@@ -39,25 +39,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimens_15dp"
                     android:fontFamily="@font/playfair_display_bold"
-                    android:text="@string/full_name"
-                    android:textColor="@color/black_90"
-                    android:textSize="@dimen/dimens_14sp" />
-
-                <EditText
-                    android:id="@+id/et_full_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimens_7dp"
-                    android:background="@drawable/shape_stroke_gray_color"
-                    android:inputType="text"
-                    android:padding="@dimen/dimens_10dp"
-                    android:textSize="@dimen/dimens_14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimens_15dp"
-                    android:fontFamily="@font/playfair_display_bold"
                     android:text="@string/number"
                     android:textColor="@color/black_90"
                     android:textSize="@dimen/dimens_14sp" />
@@ -73,44 +54,6 @@
                     android:padding="@dimen/dimens_10dp"
                     android:textSize="@dimen/dimens_14sp"
                     app:mask="+7(***)-***-**-**" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimens_15dp"
-                    android:fontFamily="@font/playfair_display_bold"
-                    android:text="@string/email"
-                    android:textColor="@color/black_90"
-                    android:textSize="@dimen/dimens_14sp" />
-
-                <EditText
-                    android:id="@+id/et_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimens_7dp"
-                    android:background="@drawable/shape_stroke_gray_color"
-                    android:inputType="textEmailAddress"
-                    android:padding="@dimen/dimens_10dp"
-                    android:textSize="@dimen/dimens_14sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimens_15dp"
-                    android:fontFamily="@font/playfair_display_bold"
-                    android:text="@string/password"
-                    android:textColor="@color/black_90"
-                    android:textSize="@dimen/dimens_14sp" />
-
-                <EditText
-                    android:id="@+id/et_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimens_7dp"
-                    android:background="@drawable/shape_stroke_gray_color"
-                    android:inputType="textPassword"
-                    android:padding="@dimen/dimens_10dp"
-                    android:textSize="@dimen/dimens_14sp" />
 
                 <TextView
                     android:id="@+id/tv_sms_code"
@@ -129,10 +72,79 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimens_7dp"
                     android:background="@drawable/shape_stroke_gray_color"
-                    android:inputType="textPassword"
+                    android:inputType="number"
                     android:padding="@dimen/dimens_10dp"
                     android:textSize="@dimen/dimens_14sp"
                     android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/ll_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_full_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_15dp"
+                        android:fontFamily="@font/playfair_display_bold"
+                        android:text="@string/full_name"
+                        android:textColor="@color/black_90"
+                        android:textSize="@dimen/dimens_14sp" />
+
+                    <EditText
+                        android:id="@+id/et_full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_7dp"
+                        android:background="@drawable/shape_stroke_gray_color"
+                        android:inputType="text"
+                        android:padding="@dimen/dimens_10dp"
+                        android:textSize="@dimen/dimens_14sp" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_15dp"
+                        android:fontFamily="@font/playfair_display_bold"
+                        android:text="@string/email"
+                        android:textColor="@color/black_90"
+                        android:textSize="@dimen/dimens_14sp" />
+
+                    <EditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_7dp"
+                        android:background="@drawable/shape_stroke_gray_color"
+                        android:inputType="textEmailAddress"
+                        android:padding="@dimen/dimens_10dp"
+                        android:textSize="@dimen/dimens_14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_15dp"
+                        android:fontFamily="@font/playfair_display_bold"
+                        android:text="@string/password"
+                        android:textColor="@color/black_90"
+                        android:textSize="@dimen/dimens_14sp" />
+
+                    <EditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_7dp"
+                        android:background="@drawable/shape_stroke_gray_color"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/dimens_10dp"
+                        android:textSize="@dimen/dimens_14sp" />
+
+                </LinearLayout>
+
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_registration"

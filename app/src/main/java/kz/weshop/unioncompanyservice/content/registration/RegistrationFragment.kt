@@ -2,7 +2,6 @@ package kz.weshop.unioncompanyservice.content.registration
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.coroutines.CoroutineScope
@@ -13,8 +12,12 @@ import kz.weshop.unioncompanyservice.R
 import kz.weshop.unioncompanyservice.common.helpers.TextUtils
 import kz.weshop.unioncompanyservice.common.helpers.Validators
 import kz.weshop.unioncompanyservice.common.helpers.base64encode
+import kz.weshop.unioncompanyservice.common.utils.ONE
+import kz.weshop.unioncompanyservice.common.utils.TWO
+import kz.weshop.unioncompanyservice.common.utils.ZERO
 import kz.weshop.unioncompanyservice.content.registration.model.ActivationAccountRequest
 import kz.weshop.unioncompanyservice.content.registration.model.RegistrationRequest
+import kz.weshop.unioncompanyservice.content.registration.model.SmsModel
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
@@ -27,16 +30,7 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
     private var isPasswordValidate = false
     private var isSmsCodeValidate = false
 
-    private var isSendSms = false
-
-    private var isClearUserDate = false
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().onBackPressedDispatcher.addCallback(this) {
-
-        }
-    }
+    private var statusField = ZERO
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,22 +48,37 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
             setLoading(false)
             errorDialog(getString(R.string.error_unknown_body))
         })
-        viewModel.isSuccess.observe(viewLifecycleOwner, {
+        viewModel.isSendSms.observe(viewLifecycleOwner, {
             when (it) {
-                true -> showEnterSmsCode()
+                true -> {
+                    setLoading(false)
+                    statusField = ONE
+                    showRegistrationField(ONE)
+                }
                 false -> {
                     setLoading(false)
-                    viewModel.clear()
+                    errorDialog(getString(R.string.error_failed_connection_to_server))
+                }
+            }
+        })
+        viewModel.isSuccess.observe(viewLifecycleOwner, {
+            when (it) {
+                true -> navigateTo(R.id.homeFragment)
+                false -> {
+                    setLoading(false)
                     errorDialog(getString(R.string.error_registration))
                 }
             }
         })
         viewModel.isActivation.observe(viewLifecycleOwner, {
             when (it) {
-                true -> navigateTo(R.id.homeFragment)
+                true -> {
+                    setLoading(false)
+                    statusField = TWO
+                    showRegistrationField(TWO)
+                }
                 false -> {
                     setLoading(false)
-                    viewModel.clear()
                     errorDialog(getString(R.string.error_failed_connection_to_server))
                 }
             }
@@ -82,11 +91,26 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
 
     private fun initListeners() {
         btn_registration.onClick {
-            if (isSendSms) prepareActivationAccount() else prepareLogin()
+            when (statusField) {
+                ZERO -> prepareSendSms()
+                ONE -> prepareActivationAccount()
+                TWO -> prepareRegister()
+            }
         }
         tv_sign_in.onClick {
             navigateTo(R.id.signInFragment)
         }
+    }
+
+    private fun prepareSendSms() {
+        val phone = et_phone.text.toString()
+        if (Validators.validatePhone(phone)) {
+            val smsModel = SmsModel(TextUtils.textToNumberFormat(phone))
+            setLoading(true)
+            CoroutineScope(Dispatchers.IO).launch {
+                viewModel.sendSms(smsModel)
+            }
+        } else et_phone.error = getString(R.string.validate_phone)
     }
 
     private fun prepareActivationAccount() {
@@ -104,10 +128,24 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
 
         if (isPhoneValidate && isSmsCodeValidate) {
             val activationAccountRequest = ActivationAccountRequest(
-                phone = base64encode(TextUtils.textToNumberFormat(phone)),
-                activationCode = base64encode(smsCode)
+                phone = TextUtils.textToNumberFormat(phone),
+                activationCode = smsCode
             )
             sendActivationAccount(activationAccountRequest)
+        }
+    }
+
+    private fun showRegistrationField(status: Int) {
+        when (status) {
+            ONE -> {
+                et_phone.isEnabled = false
+                tv_sms_code.visibility = View.VISIBLE
+                et_sms_code.visibility = View.VISIBLE
+            }
+            TWO -> {
+                et_sms_code.isEnabled = false
+                ll_field.visibility = View.VISIBLE
+            }
         }
     }
 
@@ -118,7 +156,7 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
         }
     }
 
-    private fun prepareLogin() {
+    private fun prepareRegister() {
         val fullName = et_full_name.text.toString()
         val phone = et_phone.text.toString()
         val email = et_email.text.toString()
@@ -152,12 +190,6 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
                 registrationRequest
             )
         }
-    }
-
-    private fun showEnterSmsCode() {
-        setLoading(false)
-        tv_sms_code.visibility = View.VISIBLE
-        et_sms_code.visibility = View.VISIBLE
     }
 
     private fun setRegistration(registrationRequest: RegistrationRequest) {
