@@ -1,5 +1,6 @@
 package kz.weshop.unioncompanyservice.common.remote
 
+import kz.weshop.unioncompanyservice.content.registration.model.ActivationAccountRequest
 import kz.weshop.unioncompanyservice.content.registration.model.RegistrationRequest
 import kz.weshop.unioncompanyservice.content.registration.model.RegistrationResponse
 import kz.weshop.unioncompanyservice.content.registration.model.SmsModel
@@ -26,5 +27,10 @@ interface NetworkService {
     suspend fun sendSms(
         @Body smsModel: SmsModel
     ): Response<ResponseBody>
+
+    @POST(EndPoints.POST_ACTIVATION)
+    suspend fun activateAccount(
+        @Body activationAccountRequest: ActivationAccountRequest
+    ) : Response<ResponseBody>
 
 }

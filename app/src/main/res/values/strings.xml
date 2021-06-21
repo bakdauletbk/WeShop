@@ -26,4 +26,11 @@
     <string name="email">Эл. адрес</string>
     <string name="sign_in">Есть аккаунт? Войти</string>
 
+    //Registration
+    <string name="validate_full_name">Введите свое имя!</string>
+    <string name="validate_phone">Введите номер телефона!</string>
+    <string name="validate_password">Введите пароль!</string>
+    <string name="validate_email">Введите почту!</string>
+    <string name="validate_sms_code">Введите смс код!</string>
+    <string name="code_sms">Код из СМС</string>
 </resources>

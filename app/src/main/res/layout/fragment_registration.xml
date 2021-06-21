@@ -28,6 +28,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_15dp"
                     android:fontFamily="@font/playfair_display_bold"
                     android:text="@string/register"
                     android:textColor="@color/black"
@@ -102,6 +103,7 @@
                     android:textSize="@dimen/dimens_14sp" />
 
                 <EditText
+                    android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimens_7dp"
@@ -110,7 +112,30 @@
                     android:padding="@dimen/dimens_10dp"
                     android:textSize="@dimen/dimens_14sp" />
 
+                <TextView
+                    android:id="@+id/tv_sms_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_15dp"
+                    android:fontFamily="@font/playfair_display_bold"
+                    android:text="@string/code_sms"
+                    android:textColor="@color/black_90"
+                    android:textSize="@dimen/dimens_14sp"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/et_sms_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_7dp"
+                    android:background="@drawable/shape_stroke_gray_color"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/dimens_10dp"
+                    android:textSize="@dimen/dimens_14sp"
+                    android:visibility="gone" />
+
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_registration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -130,6 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/dimens_10dp"
+                    android:layout_marginBottom="@dimen/dimens_15dp"
                     android:padding="@dimen/dimens_5dp"
                     android:text="@string/sign_in"
                     android:textColor="@color/black"
