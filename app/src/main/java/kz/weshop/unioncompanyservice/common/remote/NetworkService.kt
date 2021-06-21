@@ -1,5 +1,6 @@
 package kz.weshop.unioncompanyservice.common.remote
 
+import kz.weshop.unioncompanyservice.content.forget_password.model.ResetPasswordRequest
 import kz.weshop.unioncompanyservice.content.registration.model.ActivationAccountRequest
 import kz.weshop.unioncompanyservice.content.registration.model.RegistrationRequest
 import kz.weshop.unioncompanyservice.content.registration.model.RegistrationResponse
@@ -31,6 +32,16 @@ interface NetworkService {
     @POST(EndPoints.POST_AUTH_SMS)
     suspend fun sendSms(
         @Body smsModel: SmsModel
+    ): Response<ResponseBody>
+
+    @POST(EndPoints.POST_RESET_PASSWORD_SMS)
+    suspend fun sendSmsResetPassword(
+        @Body smsModel: SmsModel
+    ): Response<ResponseBody>
+
+    @POST(EndPoints.POST_RESET_PASSWORD)
+    suspend fun resetPassword(
+        @Body resetPasswordRequest: ResetPasswordRequest
     ): Response<ResponseBody>
 
 }

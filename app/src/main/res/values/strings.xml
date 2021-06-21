@@ -30,7 +30,14 @@
     <string name="validate_full_name">Введите свое имя!</string>
     <string name="validate_phone">Введите номер телефона!</string>
     <string name="validate_password">Введите пароль!</string>
+    <string name="validate_password_size">Пароль должен состоять из 6 символов!</string>
+    <string name="validate_password_fit">Пароль не совпадает!</string>
     <string name="validate_email">Введите почту!</string>
     <string name="validate_sms_code">Введите смс код!</string>
     <string name="code_sms">Код из СМС</string>
+    <string name="retry_password">Повторите пароль</string>
+    <string name="send">Отправить</string>
+    <string name="password_reset">Сброс пароля</string>
+    <string name="password_changed_successfully">Пароль успешно изменён!</string>
+
 </resources>

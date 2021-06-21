@@ -42,6 +42,9 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in), FragmentImpl {
         btn_to_come_in.onClick {
             prepareLogin()
         }
+        tv_forget_password.onClick {
+            navigateTo(R.id.forgetPasswordFragment)
+        }
         tv_register.onClick {
             navigateTo(R.id.action_signInFragment_to_registrationFragment)
         }
