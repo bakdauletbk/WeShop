@@ -12,17 +12,10 @@ class SplashViewModel(application: Application) : AndroidViewModel(application) 
     private val repository = SplashRepository(application)
 
     var isNetworkConnected = MutableLiveData<Boolean>()
-    var isAuthorized = MutableLiveData<Boolean>()
 
     fun getIsNetworkConnected(context: Context) {
         viewModelScope.launch {
             isNetworkConnected.postValue(repository.getIsNetworkConnected(context))
-        }
-    }
-
-    fun getIsAuthorized() {
-        viewModelScope.launch {
-            isAuthorized.postValue(repository.getIsAuthorized())
         }
     }
 

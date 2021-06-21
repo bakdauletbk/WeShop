@@ -5,6 +5,6 @@ import kz.kreditomat.business.common.base_mvvm.BaseRepository
 
 class HomeRepository(application: Application) : BaseRepository(application) {
 
-    fun getAccessToken() : String = userSession.getAccessToken().toString()
+    fun getAccessToken() : String = userSession.getAccessToken()!!
 
 }

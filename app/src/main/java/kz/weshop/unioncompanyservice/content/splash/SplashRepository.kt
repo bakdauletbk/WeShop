@@ -11,8 +11,4 @@ class SplashRepository(application: Application) : BaseRepository(application) {
         return NetworkHelpers.isNetworkConnected(context)
     }
 
-    fun getIsAuthorized(): Boolean {
-        return userSession.getIsAuthorize()
-    }
-
 }
