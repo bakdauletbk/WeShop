@@ -2,6 +2,7 @@ package kz.weshop.unioncompanyservice.content.sign_in
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 import kotlinx.coroutines.CoroutineScope
@@ -22,6 +23,13 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in), FragmentImpl {
 
     private var isValidateNumber = false
     private var isValidatePassword = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            navigateTo(R.id.homeFragment)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

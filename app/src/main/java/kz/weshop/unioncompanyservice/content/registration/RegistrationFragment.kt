@@ -2,6 +2,7 @@ package kz.weshop.unioncompanyservice.content.registration
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_registration.*
 import kotlinx.coroutines.CoroutineScope
@@ -31,6 +32,13 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
     private var isSmsCodeValidate = false
 
     private var statusField = ZERO
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            navigateTo(R.id.signInFragment)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

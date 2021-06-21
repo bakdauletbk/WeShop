@@ -3,6 +3,7 @@ package kz.weshop.unioncompanyservice.content.forget_password
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_forget_password.*
 import kotlinx.coroutines.CoroutineScope
@@ -26,6 +27,13 @@ class ForgetPasswordFragment : BaseFragment(R.layout.fragment_forget_password) {
     private var isValidatePasswordFit = false
 
     private var isSendSms = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            navigateTo(R.id.signInFragment)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
