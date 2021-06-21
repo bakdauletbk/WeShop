@@ -10,7 +10,7 @@
     //Alert Диалог
     <string name="dialog_ok">Oк</string>
     <string name="authorization">Авторизация</string>
-    <string name="phone_number_or_email">Телефон номер или email</string>
+    <string name="phone_number_or_email">Телефон номер</string>
     <string name="password">Пароль</string>
     <string name="to_come_in">Войти</string>
 
